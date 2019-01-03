@@ -3,7 +3,7 @@ package htk.example.typeclasses;
 public class Monoids {
     private Monoids() {}
 
-    public static Monoid<String> String = new MonoidString();
+    public static final Monoid<String> String = new MonoidString();
 
     public static <T> Monoid<T> Dual(Monoid<T> monoid) {
         return new Monoid<T>() {

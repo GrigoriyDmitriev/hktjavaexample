@@ -67,9 +67,10 @@ public abstract class Option<T> implements Kind1<Option.Mu, T> {
         return (G)option;
     }
 
-    public enum MonadInstance implements Monad<Mu> {
-        instance;
+    public static final Monad<Mu> Monad = new MonadInstance();
+    public static final Foldable<Mu> Foldable = new FoldableInstance();
 
+    private static class MonadInstance implements Monad<Mu> {
         @Override
         public <A, B, F extends Kind1<Mu, A>, G extends Kind1<Mu, B>> G map(Function<? super A, ? extends B> g, F f) {
             Option<A> option = narrowK(f);
@@ -105,9 +106,7 @@ public abstract class Option<T> implements Kind1<Option.Mu, T> {
         }
     }
 
-    public enum FoldableInstance implements Foldable<Mu> {
-        instance;
-
+    private static class FoldableInstance implements Foldable<Mu> {
         @Override
         public <A, B, In extends Kind1<Mu, A>> B fold(BiFunction<B, ? super A, B> bif, B init, In in) {
             Option<A> option = narrowK(in);
