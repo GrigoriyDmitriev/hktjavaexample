@@ -8,7 +8,6 @@ import java.math.BigInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EitherTest {
-    BigInteger callCount = BigInteger.ZERO;
 
     @Test
     public void testMonad() {
