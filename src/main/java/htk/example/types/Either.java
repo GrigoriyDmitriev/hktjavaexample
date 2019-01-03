@@ -28,25 +28,11 @@ public abstract class Either<A, B> implements Kind1<Either.Mu<A>, B> {
 
 
     //Monad is right-biased
+    private static final Monad Monad = new MonadInstance();
+    @SuppressWarnings("unchecked")
     public static <Z> Monad<Mu<Z>> Monad() {
-        return new Monad<Mu<Z>>() {
-            @Override
-            @SuppressWarnings("unchecked")
-            public <A, B, F extends Kind1<Mu<Z>, A>, G extends Kind1<Mu<Z>, B>> G flatMap(Function<? super A, ? extends G> fn, F f) {
-                Either<Z, A> either = narrowK(f);
-                if (either.isRight()) {
-                    return fn.apply(either.getRight());
-                }
-                return extendK((Either<Z, B>)either);
-            }
-
-            @Override
-            public <A, F extends Kind1<Mu<Z>, A>> F pure(A value) {
-                return extendK(right(value));
-            }
-        };
+        return (Monad<Mu<Z>>)Monad;
     }
-
 
     public abstract boolean isRight();
     public abstract B getRight();
@@ -101,7 +87,24 @@ public abstract class Either<A, B> implements Kind1<Either.Mu<A>, B> {
 
         @Override
         public A getLeft() {
-            return null;
+            throw new IllegalStateException();
+        }
+    }
+
+    private static class MonadInstance<Z> implements Monad<Mu<Z>> {
+        @Override
+        @SuppressWarnings("unchecked")
+        public <A, B, F extends Kind1<Mu<Z>, A>, G extends Kind1<Mu<Z>, B>> G flatMap(Function<? super A, ? extends G> fn, F f) {
+            Either<Z, A> either = narrowK(f);
+            if (either.isRight()) {
+                return fn.apply(either.getRight());
+            }
+            return extendK((Either<Z, B>)either);
+        }
+
+        @Override
+        public <A, F extends Kind1<Mu<Z>, A>> F pure(A value) {
+            return extendK(right(value));
         }
     }
 }

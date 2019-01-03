@@ -11,7 +11,7 @@ class EitherTest {
 
     @Test
     public void testMonad() {
-        Monad<Either.Mu<Exception>> monad = Either.<Exception>Monad();
+        Monad<Either.Mu<Exception>> monad = Either.Monad();
         Either<Exception, String> either = monad.pure("hello");
         Either<Exception, Integer> tryParse = monad.flatMap(EitherTest::f, either);
 
