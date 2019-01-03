@@ -59,8 +59,8 @@ class OptionTest {
     @Test
     public void testFoldMap() {
         Option<String> opt = instance.pure("hello");
-        assertEquals("hello", Monoids.foldMap(Option.FoldableInstance.instance, Monoids.MonoidString._i, opt));
-        assertEquals("", Monoids.foldMap(Option.FoldableInstance.instance, Monoids.MonoidString._i, Option.none()));
+        assertEquals("hello", Monoids.foldMap(Option.FoldableInstance.instance, Monoids.String, opt));
+        assertEquals("", Monoids.foldMap(Option.FoldableInstance.instance, Monoids.String, Option.none()));
     }
 
     private static Option<Integer> tryParse(String str) {

@@ -13,7 +13,7 @@ class ListKTest {
     @Test
     public void testFoldStrings() {
         ListK<String> numbers = ListK.of(asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"));
-        assertEquals("1234567890", Monoids.foldMap(ListK.foldable, Monoids.MonoidString._i, numbers));
+        assertEquals("1234567890", Monoids.foldMap(ListK.foldable, Monoids.String, numbers));
     }
 
     @Test
