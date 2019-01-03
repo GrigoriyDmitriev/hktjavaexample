@@ -109,10 +109,10 @@ public abstract class Option<T> implements Kind1<Option.Mu, T> {
         instance;
 
         @Override
-        public <A, B, In extends Kind1<Mu, A>> B fold(BiFunction<? super A, B, B> bif, B init, In in) {
+        public <A, B, In extends Kind1<Mu, A>> B fold(BiFunction<B, ? super A, B> bif, B init, In in) {
             Option<A> option = narrowK(in);
             if (option.isDefined()) {
-                return bif.apply(option.get(), init);
+                return bif.apply(init, option.get());
             }
             return init;
         }

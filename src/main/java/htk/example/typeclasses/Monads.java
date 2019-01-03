@@ -20,7 +20,7 @@ public class Monads {
             In extends Kind1<FoldableWtns, A>,
             FOut extends Kind1<MonadWtns, B>,
             Out extends Kind1<MonadWtns, Unit>> Out mapM_(Foldable<FoldableWtns> foldable, Monad<MonadWtns> monad, Function<? super A, FOut> f, In in) {
-        BiFunction<A, Out, Out> foldFunc = (a, mu) -> monad.flatMap(c -> monad.<Unit, Out>pure(Unit.get()),f.apply(a));
+        BiFunction<Out, A, Out> foldFunc = (mu, a) -> monad.flatMap(c -> monad.<Unit, Out>pure(Unit.get()),f.apply(a));
         return foldable.fold(foldFunc, monad.pure(Unit.get()), in);
     }
 }
