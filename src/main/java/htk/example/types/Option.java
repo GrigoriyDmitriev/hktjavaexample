@@ -1,7 +1,8 @@
 package htk.example.types;
 
+import htk.example.helpers.Tuple2;
 import htk.example.typeclasses.Foldable;
-import htk.example.typeclasses.Kind1;
+import htk.example.helpers.Kind1;
 import htk.example.typeclasses.Monad;
 
 import java.util.function.BiFunction;

@@ -1,5 +1,6 @@
-package htk.example.types;
+package htk.example.helpers;
 
+import htk.example.helpers.Trampoline;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

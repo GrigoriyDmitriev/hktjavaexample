@@ -1,4 +1,4 @@
-package htk.example.types;
+package htk.example.helpers;
 
 public class Unit {
     private static Unit instance = new Unit();

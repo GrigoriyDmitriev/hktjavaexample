@@ -1,6 +1,4 @@
-package htk.example.types;
-
-import htk.example.typeclasses.Kind1;
+package htk.example.helpers;
 
 import java.util.LinkedList;
 import java.util.function.Function;

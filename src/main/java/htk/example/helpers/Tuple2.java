@@ -1,4 +1,4 @@
-package htk.example.types;
+package htk.example.helpers;
 
 public class Tuple2<A, B> {
     private final A a;

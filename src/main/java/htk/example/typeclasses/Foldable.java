@@ -1,5 +1,7 @@
 package htk.example.typeclasses;
 
+import htk.example.helpers.Kind1;
+
 import java.util.function.BiFunction;
 
 public interface Foldable<WITNESS> {

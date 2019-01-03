@@ -1,6 +1,7 @@
 package htk.example.typeclasses;
 
-import htk.example.types.Tuple2;
+import htk.example.helpers.Kind1;
+import htk.example.helpers.Tuple2;
 
 import java.util.function.Function;
 

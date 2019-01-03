@@ -1,6 +1,7 @@
 package htk.example.typeclasses;
 
-import htk.example.types.Unit;
+import htk.example.helpers.Kind1;
+import htk.example.helpers.Unit;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

@@ -1,6 +1,6 @@
 package htk.example.types;
 
-import htk.example.typeclasses.Kind1;
+import htk.example.helpers.Kind1;
 import htk.example.typeclasses.Monad;
 
 import java.util.function.Function;

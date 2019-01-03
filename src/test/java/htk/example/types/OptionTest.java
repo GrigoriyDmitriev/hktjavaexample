@@ -1,5 +1,6 @@
 package htk.example.types;
 
+import htk.example.helpers.Tuple2;
 import htk.example.typeclasses.Monads;
 import htk.example.typeclasses.Monoids;
 import org.junit.jupiter.api.Test;

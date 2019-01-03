@@ -1,5 +1,7 @@
 package htk.example.typeclasses;
 
+import htk.example.helpers.Kind1;
+
 public class Monoids {
     private Monoids() {}
 
