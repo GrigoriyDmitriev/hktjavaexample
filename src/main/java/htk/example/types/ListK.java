@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 public class ListK<T> implements Kind1<ListK.Mu, T>, List<T> {
     public static final class Mu {}
 
-    public static final Monad<Mu> monad = new Monad<Mu>() {
+    public static final Monad<Mu> Monad = new Monad<Mu>() {
         @Override
         public <A, B, F extends Kind1<Mu, A>, G extends Kind1<Mu, B>> G flatMap(Function<? super A, ? extends G> fn, F f) {
             ListK<A> list = narrowK(f);
@@ -30,7 +30,7 @@ public class ListK<T> implements Kind1<ListK.Mu, T>, List<T> {
         }
     };
 
-    public static final Foldable<Mu> foldable = new Foldable<Mu>() {
+    public static final Foldable<Mu> Foldable = new Foldable<Mu>() {
         @Override
         public <A, B, In extends Kind1<Mu, A>> B fold(BiFunction<B, ? super A, B> bif, B init, In in) {
             ListK<A> list = narrowK(in);

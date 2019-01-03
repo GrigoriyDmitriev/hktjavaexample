@@ -13,14 +13,14 @@ class ListKTest {
     @Test
     public void testFoldStrings() {
         ListK<String> numbers = ListK.of(asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"));
-        assertEquals("1234567890", Monoids.foldMap(ListK.foldable, Monoids.String, numbers));
+        assertEquals("1234567890", Monoids.foldMap(ListK.Foldable, Monoids.String, numbers));
     }
 
     @Test
     public void testMonad() {
         ListK<List<Integer>> listofLists = ListK.of(asList(asList(1, 2), asList(3, 4), asList(5, 6)));
-        ListK<ListK<Integer>> listKListK = ListK.monad.map(ListK::of, listofLists);
-        assertEquals(asList(1, 2, 3, 4, 5, 6), Monads.join(ListK.monad, listKListK));
+        ListK<ListK<Integer>> listKListK = ListK.Monad.map(ListK::of, listofLists);
+        assertEquals(asList(1, 2, 3, 4, 5, 6), Monads.join(ListK.Monad, listKListK));
     }
 
 }
